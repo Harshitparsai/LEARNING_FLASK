@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Flash Card</title>
+</head>
+<body>
+    <h1>Flash Card</h1>
+    Question : {{card.question}} <br>
+    Answer : {{card.answer}}
+    <p><a href="{{url_for('welcome')}}">Home</a>
+        <button>
+        {% if index < maxindex %}
+        <a href="{{url_for('card_view', index=index+1)}}">Next Card</a></button>
+        {% else %}
+        <a href="{{url_for('card_view', index=0)}}">Start Over</a></button>
+        {% endif %}
+    </p>
+    <a href="{{url_for("removeCard",index=index)}}">Remove the card</a>
+</body>
+</html>

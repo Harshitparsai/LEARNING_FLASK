@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>Welcome to flask app</h1>
+    <p>this is a demo code to learn flask from basic
+        <a href="#">to learn more</a>
+    </p>
+    <h2>Flash Cards</h2>
+    <ul>
+    {% for card in cards %}
+    <li><a href="{{ url_for('card_view',index=loop.index0)}}">{{card.question}}</a></li>
+    {% endfor %}
+    <br>
+    <a href="{{ url_for('addcard') }}">Add Card</a> 
+</ul>
+</body>
+</html>
